@@ -1,0 +1,161 @@
+// SHELL PROGRAMMING
+
+
+//SWAPPING VARIABLES
+#!/bin/bash
+echo "Enter first number"
+read a
+echo "Enter second number"
+read b
+echo "BEFORE SWAPPING"
+echo " a = $a "
+echo " b = $b "
+a=$((a+b))
+b=$((a-b))
+a=$((a-b))
+echo "AFTER SWAPPING"
+echo " a = $a "
+echo " b = $b "  
+ 
+ 
+//AVERAGE OF TWO NUMBERS
+#!/bin/bash
+echo "Enter Size(N)"
+read N
+i=1
+sum=0
+echo "Enter Numbers"
+while [ $i -le $N ]
+do
+read num
+sum=$((sum + num))
+i=$((i + 1))
+done
+avg=$(echo $sum / $N | bc -l)
+echo $avg  
+
+
+//REVERSE A STRING
+#!/bin/bash
+echo "Enter a String"
+read string
+len=${#string}
+for ((i=len-1;i>=0;i--))
+do
+reverse+=${string:$i:1}
+done
+echo "Reversed String is : $reverse"  
+
+
+//PATTERN
+#!/bin/bash
+echo "Enter the number of lines to print"
+read n
+echo
+for ((i=0; i<n; i++))
+do
+for ((j=1; j<=i+1; j++))
+do
+echo -n "$j "
+done
+echo
+done
+
+
+// FARHENHEIT TO CELSIUS TEMPERATURE
+#!/bin/bash
+echo "1. Farenheit to Degree Celsius"
+echo "2. Degree Celsius to Farenheit"
+read c
+if ((c==1))
+then
+echo "Enter temp in Farenheit :"
+read f
+echo "Degree Celcius = "$(echo "scale=2; ($f-32)*5/9" | bc)
+elif ((c==2))
+then
+echo "Enter temp in Degree Celsius :"
+read c
+echo "Farenheit = "$(echo "scale=2; ($c*9/5)+32" | bc)
+else
+echo "invalid choice"
+fi  
+
+
+//LARGEST AMONG THREE NUMBERS
+#!/bin/bash
+echo "Enter three Numbers"
+read num1
+read num2
+read num3
+if ((num1>num2 && num1>num3))
+then
+echo "Largest is $num1"
+elif ((num2>num3))
+then
+echo "Largest is $num2"
+else
+echo "Largest is $num3"
+fi  
+
+
+//CALCULATOR
+#!/bin/bash
+echo "Simple Calculator"
+echo "Select Choice"
+echo "1.Addition"
+echo "2.Substraction"
+echo "3.Multiplication"
+echo "4.Division"
+echo "0.exit"
+c=1
+while ((c!=0))
+do
+echo "Select Choice"
+read c
+case $c in
+1)
+echo "Enter two numbers"
+read a
+read b
+echo "Sum is $((a+b))"
+;;
+2)
+echo "Enter two numbers"
+read a
+read b
+echo "Difference is $((a-b))"
+;;
+3)
+echo "Enter two numbers"
+read a
+read b
+echo "Product is $((a*b))"
+;;
+4)
+echo "Enter two numbers"
+read a
+read b
+echo "Quotient is "$(echo "scale=4; $a/$b" | bc)
+;; 0)
+;;
+*)
+echo "Invalid Choice"
+esac
+done  
+
+
+//REVERSE A NUMBER
+#!/bin/bash
+echo enter n
+read n
+num=0
+while [ $n -gt 0 ]
+do
+num=$(expr $num \* 10)
+k=$(expr $n % 10)
+num=$(expr $num + $k)
+n=$(expr $n / 10)
+done
+echo number is $num  
+
