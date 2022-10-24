@@ -1,2 +1,2 @@
-# OS_C
-# Operating System implementation using C
+#OS_C
+#Operating System implementation using C
